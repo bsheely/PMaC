@@ -1,0 +1,132 @@
+body {
+    text-align:center;
+    padding:0;
+    margin:1px 0 0;
+    font:normal 11px Arial, Helvetica, Sans-serif;
+    color:#fff;
+
+}
+
+a {
+    color:#ccc;
+    text-decoration:underline;
+}
+
+a:hover {
+    color:#A77749;
+}
+
+#container {
+    text-align:left;
+    background:#FFF;
+    width:700px;
+    margin:auto;
+    position:relative;
+    padding:0;
+}
+
+#logoheader li {
+    width:700px;
+    top:0;
+    background:#FFF;
+}
+
+#testcase h1, #supportingdata h1, #linkList h1{
+    font:bold 15px Arial, Helvetica, Sans-serif;
+    text-align:center;
+    margin:5px;
+    padding:0;
+}
+
+#testcase h2, #supportingdata h2, #linkList h2{
+    font:bold 15px Arial, Helvetica, Sans-serif;
+    margin:5px;
+    padding:0;    
+}
+
+#testcase h3, #supportingdata h3, #linkList h3{
+    font:bold 13px Arial, Helvetica, Sans-serif;
+    margin:5px;
+    padding:0;    
+}
+
+#testcase p{
+    margin:0;
+    padding:10px 15px 0px 15px;
+}
+
+#testcase {
+    border-top:#fff 1px solid;
+    top:120px;
+    margin:3px 0 0 0;
+    padding:5px;
+    width:514px;
+    background:#3871c2;
+    border-radius:5px;
+}
+
+#supportingdata{
+    width:514px;
+    background:#222;
+    margin:3px 0 0 0;
+    padding:5px;
+    border-radius:5px;
+}
+
+#testcase table, #supportingdata table{
+    width:100%;
+}
+
+#linkList {
+    position:absolute;
+    top:85px;
+    left:525px;
+    width:175px;
+    background:#fff;
+    border-top:#fff 1px solid;
+    color:#fff;
+}
+
+#linkList a{
+    color:#FFF;
+    text-decoration:none;
+}
+
+#linkList a:hover{
+    color:#FCD2B8;
+}
+
+#listmenu{
+    background:#F90;
+    margin:3px;
+    padding:3px;
+    border-radius:5px;
+    text-align:left;    
+}
+#listmenu ul{
+    margin:0;
+    padding:0 0 5px 5px;
+    font:normal 11px Arial, Helvetica, Sans-serif;
+    list-style-position:inside;
+    text-align:left;
+}
+
+#listmenu li{
+    padding: 0 0 5px 5px;
+    margin:0;
+    font:normal 11px Arial, Helvetica, Sans-serif;
+/*
+    background:transparent url(bullet2.gif) no-repeat 0 4px;
+*/
+    list-style-position:inside;
+    text-align:left;
+}
+
+/*
+#listmenu{
+    background:#FD9453 url(lselect_top.gif) no-repeat top left;
+    padding:29px 0 0 0;
+}
+
+
+*/

@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>PMaC Tools Automated Modeling Analysis></title>
+<link rel="stylesheet" href="pmac-tools-report.css">
+</head>
+<body>
+<div id="container">
+<div id="intro">
+<div id="logoheader">
+<a href="http://www.pmaclabs.com/"> <img src="pmac_logo_whitebg.gif" width="530" height="82"  alt="PMaC Laboratories, Inc."></a>
+<a href="http://pettt-ace.com/"> <img src="ace_logo.png" width="63" height="80"  alt="Pettt-Ace"></a>
+</div>
+<div id="testcase">
+<h1>Test Case Summary</h1>
+<table>
+<tr>
+<td><b>Application:</b>icepic</td>
+<td><b>Data Set:</b>standard</td>
+<td><b>CPU Count:</b>64</td>
+</tr>
+<tr>
+<td><b>Simulated System:</b>sapphire</td>
+<td><b>Simulation Date:</b>12/08/10 15:44</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="supportingdata">
+<a name="per_system_time"></a>
+<h1>Estimated Application Runtime Per System</h1>
+<table>
+<tr>
+<th>Machine</th>
+<th>Runtime</th>
+<th>Communication</th>
+</tr>
+<tr>
+<td>jaws</td>
+<td>4836.42</td>
+<td>46%</td>
+</tr>
+<tr>
+<td>einstein</td>
+<td>7383.99</td>
+<td>45%</td>
+</tr>
+<tr>
+<td>davinci</td>
+<td>6602.57</td>
+<td>46%</td>
+</tr>
+<tr>
+<td>diamond</td>
+<td>3492.58</td>
+<td>45%</td>
+</tr>
+<tr>
+<td>mjm</td>
+<td>4576.82</td>
+<td>45%</td>
+</tr>
+<tr>
+<td>mana</td>
+<td>3206.25</td>
+<td>46%</td>
+</tr>
+<tr>
+<td>jade</td>
+<td>8491.03</td>
+<td>45%</td>
+</tr>
+<tr>
+<td>diamond</td>
+<td>3152.85</td>
+<td>45%</td>
+</tr>
+<tr>
+<td>babbage</td>
+<td>8537.48</td>
+<td>45%</td>
+</tr>
+</table>
+</div>
+<div id="supportingdata">
+<a name="message_passing_overview"></a>
+<h1>Total Processing and Message Passing Time</h1>
+<table>
+<tr>
+<td><img src="icepic_standard_0064_pr41283_etime_piechart.png" width="514px"></td>
+</tr>
+<tr>
+<td>
+<table>
+<tr>
+<th>MPI Event</th>
+<th>Total Bytes</th>
+<th>Number of Calls</th>
+<th>Avg. Bytes</th>
+</tr>
+<tr>
+<td>MPI_Waitany</td>
+<td>44004281888</td>
+<td>3563508</td>
+<td>12348.59</td>
+</tr>
+<tr>
+<td>MPI_Allreduce</td>
+<td>185760304</td>
+<td>56808</td>
+<td>3269.97</td>
+</tr>
+<tr>
+<td>MPI_Bcast</td>
+<td>20843978</td>
+<td>379896</td>
+<td>54.87</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div id="supportingdata">
+<a name="message_passing_per_cpu"></a>
+<h1>Per-Task Processing and Message Passing Time</h1>
+<img src="icepic_standard_0064_pr41283_etasktime_barchart.png" width="514px">
+<h3><a title="Load imbalance due to an MPI event is identified when the time spent in that event for a given task is significantly different than the average for all tasks. Based on this criteria the following MPI events have been identified as causing a load imbalance in at least one specific task:">Imbalanced</a> MPI Functions:</h3>
+CPUTime, MPI_Allreduce, MPI_Barrier, MPI_Bcast, MPI_Finalize, MPI_Irecv, MPI_Issend, MPI_Recv, MPI_Reduce, MPI_Send, MPI_Ssend, MPI_Waitall, MPI_Waitany
+</div>
+<div id="supportingdata">
+<a name="function_time_overview"></a>
+<h1>Functions With Highest Processing Time</h1>
+<img src="icepic_standard_0064_pr41283_functime_piechart.png" width="514px">
+<table>
+<tr>
+<th>Routine Name</th>
+<th>Run Time</th>
+<th>L1 Hitrate</th>
+<th>L2 Hitrate</th>
+</tr>
+<tr>
+<td>EFieldUpdate</td>
+<td>923.76</td>
+<td>94.57</td>
+<td>94.86</td>
+</tr>
+<tr>
+<td>BFieldUpdate</td>
+<td>642.51</td>
+<td>88.94</td>
+<td>89.48</td>
+</tr>
+<tr>
+<td>_pow</td>
+<td>240.75</td>
+<td>99.99</td>
+<td>100.00</td>
+</tr>
+<tr>
+<td>PointInRect</td>
+<td>163.03</td>
+<td>99.91</td>
+<td>100.00</td>
+</tr>
+<tr>
+<td>WeightVtoJCar</td>
+<td>148.25</td>
+<td>97.46</td>
+<td>98.78</td>
+</tr>
+<tr>
+<td>expinner2</td>
+<td>136.16</td>
+<td>99.99</td>
+<td>100.00</td>
+</tr>
+</table>
+</div>
+<div id="supportingdata">
+<a name="cache_behavior_overview"></a>
+<h1>Analysis of Data Movement</h1>
+Our analysis shows that your application is spending its time <a title="The hit rate data for each basic-block was captured using runtime cache simulation of the application's memory address stream. Data is assumed to be in L1 cache if it has hit rates >= 99.5%, in L2 cache if it has hit rates >= 99.5%, and in L3 cache if it has hit rates >= 98.0%">waiting for memory</a> in the following places:
+<img src="icepic_standard_0064_pr41283_hitrates_piechart.png" width="514px">
+<table>
+<tr>
+<th>Cache Level</th>
+<th>Time Spent</th>
+<th>% Time</th>
+</tr>
+<tr>
+<td>L1</td>
+<td>2211.12</td>
+<td>58.02%</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>145.64</td>
+<td>3.82%</td>
+</tr>
+<tr>
+<td>Main Mem</td>
+<td>1454.44</td>
+<td>38.16%</td>
+</tr>
+</table>
+</div>
+<div id="linkList">
+<div id="listmenu">
+<h1><span>App Characterization</span></h1>
+<ul id="listmenu">
+<li><a href="#per_system_time" title="Application time, broken down by computation vs. communication for all unclassified HPCMP systems">Cross-Arch Runtimes</a>&nbsp;</li>
+<li><a href="#message_passing_overview" title="Overall application time, broken down by computation vs. communication">MPI Overview</a>&nbsp;</li>
+<li><a href="#message_passing_per_cpu" title="Application time per CPU, broken down by computation vs. communication">MPI Per-Task</a>&nbsp;</li>
+<li><a href="#function_time_overview" title="Time spent per function">Function Timing</a>&nbsp;</li>
+<li><a href="#cache_behavior_overview" title="Application cache behavior">Data Motion</a>&nbsp;</li>
+</ul>
+</div>
+<div id="listmenu">
+<h1><span>Cross-Arch Analysis</span></h3>
+<ul id="listmenu">
+<li><a href="">jaws</a>&nbsp;</li>
+<li><a href="">einstein</a>&nbsp;</li>
+<li><a href="">davinci</a>&nbsp;</li>
+<li><a href="">diamond</a>&nbsp;</li>
+<li><a href="">mjm</a>&nbsp;</li>
+<li><a href="">mana</a>&nbsp;</li>
+<li><a href="">jade</a>&nbsp;</li>
+<li><a href="">diamond</a>&nbsp;</li>
+<li><a href="">babbage</a>&nbsp;</li>
+</ul>
+</div>
+<div id="listmenu">
+<h1><span>Other Resources</span></h3>
+<ul id="listmenu">
+<li><a href="http://apps.ccac.hpc.mil/PMaC/faq.html/">FAQ</a>&nbsp;</li>
+<li><a href="http://apps.ccac.hpc.mil/PMaC/faq.html/">pmac-tools Home</a>&nbsp;</li>
+<li><a href="http://en.wikibooks.org/wiki/Message-Passing_Interface/MPI_function_reference">MPI Function Interface</a>&nbsp;</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

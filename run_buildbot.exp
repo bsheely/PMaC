@@ -1,0 +1,91 @@
+#!/usr/bin/expect -f
+
+set timeout 7
+
+spawn ssh rogan.pmaclabs.com
+set rogan_id $spawn_id
+expect -i $rogan_id timeout
+send -i $rogan_id "buildbot stop /home/buildmaster\r"
+expect -i $rogan_id timeout
+send -i $rogan_id "buildbot start /home/buildmaster\r"
+expect -i $rogan_id timeout
+send -i $rogan_id "exit\r"
+
+spawn ssh diamond02.erdc.hpc.mil -R 9989:rogan.pmaclabs.com:9989
+set diamond_id $spawn_id
+expect -i $diamond_id timeout
+send -i $diamond_id "/usr/local/usp/PETtools/CE/pkgs/pmac/testing/bin/buildslave start /usr/local/usp/PETtools/CE/pkgs/pmac/testing/buildslaves\r"
+
+spawn ssh davinci.navo.hpc.mil -R 9989:rogan.pmaclabs.com:9989
+set davinci_id $spawn_id
+expect -i $davinci_id timeout
+send -i $davinci_id "/u/home/bsheely/tools/bin/buildslave start /u/home/bsheely/tools/buildslaves\r"
+
+spawn ssh einstein.navo.hpc.mil -R 9989:rogan.pmaclabs.com:9989
+set einstein_id $spawn_id
+expect -i $einstein_id timeout
+send -i $einstein_id "/u/home/bsheely/tools/bin/buildslave start /u/home/bsheely/tools/buildslaves\r"
+
+spawn ssh mlogin1.mhpcc.hpc.mil -R 9989:rogan.pmaclabs.com:9989
+set mana_id $spawn_id
+expect -i $mana_id timeout
+send -i $mana_id "/mnt/home/bsheely/tools/bin/buildslave start /mnt/home/bsheely/tools/buildslaves\r"
+
+spawn ssh hawk.afrl.hpc.mil -R 9989:rogan.pmaclabs.com:9989
+set hawk_id $spawn_id
+expect -i $hawk_id timeout
+send -i $hawk_id "\r"
+expect -i $hawk_id timeout
+send -i $hawk_id "\r"
+expect -i $hawk_id -exact "--More--"
+send -i $hawk_id "q"
+expect -i $hawk_id timeout
+send -i $hawk_id "/hafs12/bsheely/tools/bin/buildslave start /hafs12/bsheely/tools/buildslaves\r"
+
+sleep 180
+
+spawn irc pmac_bot irc.freenode.net
+set irc_id $spawn_id
+expect -i $irc_id timeout 
+send -i $irc_id "/join #pmac_buildbot\r" 
+expect -i $irc_id timeout 
+send -i $irc_id "pmacbot: force build PSiNSTracer-diamond\r" 
+expect -i $irc_id timeout 
+send -i $irc_id "pmacbot: force build PSiNSTracer-davinci\r" 
+expect -i $irc_id timeout 
+send -i $irc_id "pmacbot: force build PSiNSTracer-einstein\r" 
+expect -i $irc_id timeout 
+send -i $irc_id "pmacbot: force build PSiNSTracer-mana\r" 
+expect -i $irc_id timeout 
+send -i $irc_id "pmacbot: force build PSiNSTracer-hawk\r" 
+expect -i $irc_id timeout 
+send -i $irc_id "/quit\r"
+
+sleep 7200
+
+send -i $diamond_id "/usr/local/usp/PETtools/CE/pkgs/pmac/testing/bin/buildslave stop /usr/local/usp/PETtools/CE/pkgs/pmac/testing/buildslaves\r"
+expect -i $diamond_id timeout
+send -i $diamond_id "exit\r"
+
+send -i $davinci_id "/u/home/bsheely/tools/bin/buildslave stop /u/home/bsheely/tools/buildslaves\r"
+expect -i $davinci_id timeout
+send -i $davinci_id "exit\r"
+
+send -i $einstein_id "/u/home/bsheely/tools/bin/buildslave stop /u/home/bsheely/tools/buildslaves\r"
+expect -i $einstein_id timeout
+send -i $einstein_id "exit\r"
+
+send -i $mana_id "/mnt/home/bsheely/tools/bin/buildslave stop /mnt/home/bsheely/tools/buildslaves\r"
+expect -i $mana_id timeout
+send -i $mana_id "exit\r"
+
+send -i $hawk_id "/hafs12/bsheely/tools/bin/buildslave stop /hafs12/bsheely/tools/buildslaves\r"
+expect -i $hawk_id timeout
+send -i $hawk_id "exit\r"
+
+exit 0
+
+
+
+
+
